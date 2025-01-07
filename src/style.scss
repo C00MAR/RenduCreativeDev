@@ -1,0 +1,42 @@
+@import "../public/font/css/clash-display.css";
+
+body {
+    font-family: 'ClashDisplay-Medium';
+    font-size: 16px;
+    color: #eeeeee;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 2rem !important;
+    font-family: 'ClashDisplay-Bold';
+}
+
+.herobanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(130, 0, 162);
+
+    &__icon {
+        width: 20vw;
+
+        svg {
+            width: 100%;
+            filter: drop-shadow(0 0 0.75rem rgb(255, 255, 255));
+        
+            path {
+                fill: #eeeeee;
+            }
+        }
+    }
+
+    &__TitleAlbum {
+        position: absolute;
+        bottom: 0;
+        text-transform: uppercase;
+        font-size: 9.5rem !important;
+    }
+}
