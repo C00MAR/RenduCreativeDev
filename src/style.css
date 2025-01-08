@@ -36,7 +36,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .herobanner__TitleAlbum {
   width: 100vw;
-  margin-top: auto;
+  margin-bottom: auto;
+  position: absolute;
+  bottom: 0;
 }
 .herobanner__TitleAlbum svg {
   width: 100%;
@@ -60,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.05;
+  opacity: 0.04;
   z-index: 1000;
   pointer-events: none;
   background: url("/public/noise.gif");
@@ -93,90 +95,124 @@ h1, h2, h3, h4, h5, h6 {
   background: rgb(130, 0, 162);
 }
 
-@keyframes float-x {
+@keyframes float-diagonal1 {
   0% {
-    transform: translateX(0);
+    transform: translate(0, 0);
   }
-  50% {
-    transform: translateX(100px);
+  20% {
+    transform: translate(150px, 150px);
+  }
+  40% {
+    transform: translate(0, 0);
+  }
+  60% {
+    transform: translate(240px, 50px);
+  }
+  80% {
+    transform: translate(25px, 140px);
   }
   100% {
-    transform: translateX(0);
+    transform: translate(140px, -50px);
   }
 }
-@keyframes float-y {
+@keyframes float-diagonal2 {
   0% {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
   50% {
-    transform: translateY(100px);
+    transform: translate(-150px, 150px);
   }
   100% {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
 }
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
+@keyframes float-circle {
+  0% {
+    transform: translate(0, 0);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: translate(100px, -100px);
+  }
+  50% {
+    transform: translate(200px, 0);
+  }
+  75% {
+    transform: translate(100px, 100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes float-random {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(120px, -80px);
+  }
+  40% {
+    transform: translate(-60px, 150px);
+  }
+  60% {
+    transform: translate(200px, 50px);
+  }
+  80% {
+    transform: translate(-100px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 .svg:nth-child(1) {
-  left: 30%;
-  top: 30%;
-  animation: float-x 13s ease-in-out infinite, float-y 10s ease-in-out infinite alternate, rotate 25s linear infinite;
-  animation-delay: -2s;
-  transform: scale(0.55);
+  left: 47%;
+  top: 22%;
+  animation: float-diagonal1 10s ease-in-out infinite;
+  transform: scale(0.5);
   z-index: -6;
   filter: blur(-5px);
   opacity: 0.8;
 }
 .svg:nth-child(1):hover {
-  animation-play-state: paused;
+  fill: #101010;
 }
 
 .svg:nth-child(2) {
-  left: 45%;
-  top: 40%;
-  animation: float-x 16s ease-in-out infinite, float-y 12s ease-in-out infinite alternate, rotate 30s linear infinite;
-  animation-delay: -4s;
-  transform: scale(0.7);
+  left: 23%;
+  top: 8%;
+  animation: float-diagonal2 11s ease-in-out infinite;
+  transform: scale(0.6);
   z-index: -5;
   filter: blur(-4px);
   opacity: 0.8;
 }
 .svg:nth-child(2):hover {
-  animation-play-state: paused;
+  fill: #101010;
 }
 
 .svg:nth-child(3) {
-  left: 60%;
-  top: 50%;
-  animation: float-x 19s ease-in-out infinite, float-y 14s ease-in-out infinite alternate, rotate 35s linear infinite;
-  animation-delay: -6s;
-  transform: scale(0.85);
+  left: 41%;
+  top: 44%;
+  animation: float-circle 15s ease-in-out infinite;
+  transform: scale(0.7);
   z-index: -4;
   filter: blur(-3px);
   opacity: 0.8;
 }
 .svg:nth-child(3):hover {
-  animation-play-state: paused;
+  fill: #101010;
 }
 
 .svg:nth-child(4) {
-  left: 75%;
-  top: 60%;
-  animation: float-x 22s ease-in-out infinite, float-y 16s ease-in-out infinite alternate, rotate 40s linear infinite;
-  animation-delay: -8s;
-  transform: scale(1);
+  left: 3%;
+  top: 59%;
+  animation: float-random 11s ease-in-out infinite;
+  transform: scale(0.8);
   z-index: -3;
   filter: blur(-2px);
   opacity: 0.8;
 }
 .svg:nth-child(4):hover {
-  animation-play-state: paused;
+  fill: #101010;
 }
 
 .svg:nth-child(1) {

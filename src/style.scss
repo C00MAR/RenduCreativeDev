@@ -1,5 +1,14 @@
 @import "/font/css/clash-display.css";
 
+@function random-range($min, $max, $unit: null) {
+    $rand: random($max - $min) + $min;
+    @if $unit == '%' {
+        @return #{$rand}#{$unit};
+    } @else {
+        @return $rand;
+    }
+}
+
 body {
     font-family: 'ClashDisplay-Medium';
     font-size: 16px;
@@ -25,8 +34,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     width: 100vw;
     position: relative;
-    // overflow: hidden;
-    // background: rgb(130, 0, 162);
     
     &__icon {
         width: 20vw;
@@ -43,7 +50,9 @@ h1, h2, h3, h4, h5, h6 {
     
     &__TitleAlbum {
         width: 100vw;
-        margin-top: auto;
+        margin-bottom: auto;
+        position: absolute;
+        bottom: 0;
         
         & svg {
             width: 100%;
@@ -71,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100vw;
     height: 100vh;
     content: '';
-    opacity: 0.05;
+    opacity: 0.04;
     z-index: 1000;
     pointer-events: none;
     background: url('/public/noise.gif');
@@ -110,53 +119,99 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-// Create floating animation keyframes
-@keyframes float-x {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(100px); }
-    100% { transform: translateX(0); }
+@keyframes float-diagonal1 {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(150px, 150px); }
+    40% { transform: translate(0, 0); }
+    60% { transform: translate(240px, 50px); }
+    80% { transform: translate(25px, 140px); }
+    100% { transform: translate(140px, -50px); }
 }
 
-@keyframes float-y {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(100px); }
-    100% { transform: translateY(0); }
+@keyframes float-diagonal2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-150px, 150px); }
+    100% { transform: translate(0, 0); }
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes float-circle {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(100px, -100px); }
+    50% { transform: translate(200px, 0); }
+    75% { transform: translate(100px, 100px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes float-random {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(120px, -80px); }
+    40% { transform: translate(-60px, 150px); }
+    60% { transform: translate(200px, 50px); }
+    80% { transform: translate(-100px, -100px); }
+    100% { transform: translate(0, 0); }
 }
 
 $total: 4;
 
+@function get-zone-position($index) {
+    $zones-x: (
+        1: (45, 60),
+        2: (15, 30),
+        3: (30, 45),
+        4: (0, 15)
+    );
+    
+    $zones-y: (
+        1: (15, 30),
+        2: (0, 15),
+        3: (30, 45),
+        4: (45, 60)
+    );
+    
+    $x-range: map-get($zones-x, $index);
+    $y-range: map-get($zones-y, $index);
+    
+    $random-x: random-range(nth($x-range, 1), nth($x-range, 2), '%');
+    $random-y: random-range(nth($y-range, 1), nth($y-range, 2), '%');
+    
+    @return ($random-x, $random-y);
+}
+
 @for $i from 1 through $total {
     .svg:nth-child(#{$i}) {
-        left: 15% + ($i * 15%);
-        top: 20% + ($i * 10%);
-        animation: 
-            float-x #{10 + $i * 3}s ease-in-out infinite,
-            float-y #{8 + $i * 2}s ease-in-out infinite alternate,
-            rotate #{20 + $i * 5}s linear infinite;
-        animation-delay: -#{$i * 2}s;
-        transform: scale(#{0.4 + $i * 0.15});
+        $position: get-zone-position($i);
+
+        left: nth($position, 1);
+        top: nth($position, 2);
+
+        $random-duration: random-range(8, 20);
+
+        @if $i == 1 {
+            animation: float-diagonal1 #{$random-duration}s ease-in-out infinite;
+        } @else if $i == 2 {
+            animation: float-diagonal2 #{$random-duration}s ease-in-out infinite;
+        } @else if $i == 3 {
+            animation: float-circle #{$random-duration}s ease-in-out infinite;
+        } @else {
+            animation: float-random #{$random-duration}s ease-in-out infinite;
+        }
+
+        transform: scale(#{0.4 + $i * 0.1});
         z-index: $i - 7;
         filter: blur(#{$i - 6}px);
         opacity: 0.8;
-        
+
         &:hover {
-            animation-play-state: paused;
+            fill: #101010;
         }
     }
 }
 
-// Add different movement patterns for each SVG
 .svg:nth-child(1) { animation-timing-function: ease-in-out; }
 .svg:nth-child(2) { animation-timing-function: ease-out; }
 .svg:nth-child(3) { animation-timing-function: linear; }
 .svg:nth-child(4) { animation-timing-function: ease-in; }
 
-// Add different directions for each SVG
 .svg:nth-child(1) { animation-direction: alternate; }
 .svg:nth-child(2) { animation-direction: alternate-reverse; }
 .svg:nth-child(3) { animation-direction: normal; }
