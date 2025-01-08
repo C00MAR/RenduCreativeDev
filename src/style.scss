@@ -118,7 +118,6 @@ h1, h2, h3, h4, h5, h6 {
     background: rgb(130, 0, 162);
 }
 
-
 @keyframes float-diagonal1 {
     0% { transform: translate(0, 0); }
     20% { transform: translate(150px, 150px); }
@@ -127,7 +126,6 @@ h1, h2, h3, h4, h5, h6 {
     80% { transform: translate(25px, 140px); }
     100% { transform: translate(140px, -50px); }
 }
-
 @keyframes float-diagonal2 {
     0% { transform: translate(0, 0); }
     50% { transform: translate(-150px, 150px); }
@@ -179,21 +177,23 @@ $total: 4;
 
 @for $i from 1 through $total {
     .svg:nth-child(#{$i}) {
-        left: 15% + ($i * 15%);
-        top: 20% + ($i * 10%);
-        animation: 
-        float-x #{10 + $i * 3}s ease-in-out infinite,
-        float-y #{8 + $i * 2}s ease-in-out infinite alternate,
-        rotate #{20 + $i * 5}s linear infinite;
-        animation-delay: #{$i}s;
-        transform: scale(#{0.4 + $i * 0.15});
+        $position: get-zone-position($i);
+        left: nth($position, 1);
+        top: nth($position, 2);
+        $random-duration: random-range(8, 20);
+        @if $i == 1 {
+            animation: float-diagonal1 #{$random-duration}s ease-in-out infinite;
+        } @else if $i == 2 {
+            animation: float-diagonal2 #{$random-duration}s ease-in-out infinite;
+        } @else if $i == 3 {
+            animation: float-circle #{$random-duration}s ease-in-out infinite;
+        } @else {
+            animation: float-random #{$random-duration}s ease-in-out infinite;
+        }
+        transform: scale(#{0.4 + $i * 0.1});
         z-index: $i - 7;
         filter: blur(#{$i - 6}px);
         opacity: 0.8;
-
-        &:hover {
-            fill: #101010;
-        }
     }
 }
 
@@ -208,8 +208,10 @@ $total: 4;
 .svg:nth-child(4) { animation-direction: reverse; }
 
 .musicPlayer {
-    // position: absolute;
-    float: right;
+    position: fixed;
+    right: 8px;
+    top: 8px;
+    width: fit-content;
     background-color: white;
     backdrop-filter: blur(22px);
     box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .04);
@@ -218,12 +220,11 @@ $total: 4;
     padding: 8px 16px;
     border-radius: 8px;
     margin-top: 8px;
-    margin-right: 8px;
     display: flex;
     align-items: center;
     gap: 16px;
     z-index: 90000;
-    position: relative;
+
     &__cover img {
         border-radius: 50%;
     }
@@ -242,6 +243,7 @@ $total: 4;
         gap: 8px;
         
         input[type="range"] {
+            margin-top: 3px !important;
             -webkit-appearance: none !important;
             margin: 0px;
             padding: 0px;

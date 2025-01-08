@@ -165,59 +165,43 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .svg:nth-child(1) {
-  left: 30%;
-  top: 30%;
-  animation: float-x 13s ease-in-out infinite, float-y 10s ease-in-out infinite alternate, rotate 25s linear infinite;
-  animation-delay: 1s;
-  transform: scale(0.55);
+  left: 52%;
+  top: 21%;
+  animation: float-diagonal1 20s ease-in-out infinite;
+  transform: scale(0.5);
   z-index: -6;
   filter: blur(-5px);
   opacity: 0.8;
 }
-.svg:nth-child(1):hover {
-  fill: #101010;
-}
 
 .svg:nth-child(2) {
-  left: 45%;
-  top: 40%;
-  animation: float-x 16s ease-in-out infinite, float-y 12s ease-in-out infinite alternate, rotate 30s linear infinite;
-  animation-delay: 2s;
-  transform: scale(0.7);
+  left: 20%;
+  top: 14%;
+  animation: float-diagonal2 17s ease-in-out infinite;
+  transform: scale(0.6);
   z-index: -5;
   filter: blur(-4px);
   opacity: 0.8;
 }
-.svg:nth-child(2):hover {
-  fill: #101010;
-}
 
 .svg:nth-child(3) {
-  left: 60%;
-  top: 50%;
-  animation: float-x 19s ease-in-out infinite, float-y 14s ease-in-out infinite alternate, rotate 35s linear infinite;
-  animation-delay: 3s;
-  transform: scale(0.85);
+  left: 39%;
+  top: 40%;
+  animation: float-circle 10s ease-in-out infinite;
+  transform: scale(0.7);
   z-index: -4;
   filter: blur(-3px);
   opacity: 0.8;
 }
-.svg:nth-child(3):hover {
-  fill: #101010;
-}
 
 .svg:nth-child(4) {
-  left: 75%;
-  top: 60%;
-  animation: float-x 22s ease-in-out infinite, float-y 16s ease-in-out infinite alternate, rotate 40s linear infinite;
-  animation-delay: 4s;
-  transform: scale(1);
+  left: 8%;
+  top: 56%;
+  animation: float-random 19s ease-in-out infinite;
+  transform: scale(0.8);
   z-index: -3;
   filter: blur(-2px);
   opacity: 0.8;
-}
-.svg:nth-child(4):hover {
-  fill: #101010;
 }
 
 .svg:nth-child(1) {
@@ -253,7 +237,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .musicPlayer {
-  float: right;
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  width: fit-content;
   background-color: white;
   backdrop-filter: blur(22px);
   box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.04);
@@ -262,12 +249,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 16px;
   border-radius: 8px;
   margin-top: 8px;
-  margin-right: 8px;
   display: flex;
   align-items: center;
   gap: 16px;
   z-index: 90000;
-  position: relative;
 }
 .musicPlayer__cover img {
   border-radius: 50%;
@@ -283,6 +268,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
 }
 .musicPlayer__controls input[type=range] {
+  margin-top: 3px !important;
   -webkit-appearance: none !important;
   margin: 0px;
   padding: 0px;
