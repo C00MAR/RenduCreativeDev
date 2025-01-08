@@ -18,7 +18,7 @@ body {
     background-image: url('./assets/background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    
+    position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
             width: 100%;
         }
     }
-
+    
     .wrap {
         position: relative;
         width: 100%;
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100vw;
     height: 100vh;
     content: '';
-    opacity: 0.04;
+    opacity: 0.025;
     z-index: 1000;
     pointer-events: none;
     background: url('/public/noise.gif');
@@ -104,10 +104,10 @@ h1, h2, h3, h4, h5, h6 {
         &:nth-child(2) {
             background: rgb(130, 0, 162);
         }
-
+        
         &:nth-child(3) {
             background: rgb(130, 0, 162);
-    
+            
         }
     }
 }
@@ -127,7 +127,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-
 @keyframes float-diagonal1 {
     0% { transform: translate(0, 0); }
     20% { transform: translate(150px, 150px); }
@@ -136,7 +135,6 @@ h1, h2, h3, h4, h5, h6 {
     80% { transform: translate(25px, 140px); }
     100% { transform: translate(140px, -50px); }
 }
-
 @keyframes float-diagonal2 {
     0% { transform: translate(0, 0); }
     50% { transform: translate(-150px, 150px); }
@@ -189,12 +187,9 @@ $total: 4;
 @for $i from 1 through $total {
     .svg:nth-child(#{$i}) {
         $position: get-zone-position($i);
-
         left: nth($position, 1);
         top: nth($position, 2);
-
         $random-duration: random-range(8, 20);
-
         @if $i == 1 {
             animation: float-diagonal1 #{$random-duration}s ease-in-out infinite;
         } @else if $i == 2 {
@@ -204,7 +199,6 @@ $total: 4;
         } @else {
             animation: float-random #{$random-duration}s ease-in-out infinite;
         }
-
         transform: scale(#{0.4 + $i * 0.1});
         z-index: $i - 7;
         filter: blur(#{$i - 6}px);
@@ -222,6 +216,101 @@ $total: 4;
 .svg:nth-child(3) { animation-direction: normal; }
 .svg:nth-child(4) { animation-direction: reverse; }
 
+.musicPlayer {
+    position: fixed;
+    right: 8px;
+    top: 8px;
+    width: fit-content;
+    background-color: white;
+    backdrop-filter: blur(22px);
+    box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .04);
+    -webkit-backdrop-filter: blur(22px);
+    background-color: hsla(0, 0%, 100%, .7) !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 90000;
+
+    &__cover img {
+        border-radius: 50%;
+    }
+    
+    &__track {
+        & p {
+            width: 100%;
+            color: rgba(0, 0, 0, 0.437);
+            text-align: center;
+        }
+    }
+    
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        input[type="range"] {
+            margin-top: 3px !important;
+            -webkit-appearance: none !important;
+            margin: 0px;
+            padding: 0px;
+            background: #f2eae4;
+            height: 5px;
+            width: 150px;
+            outline: none;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        
+        input[type="range"]::-ms-fill-lower {
+            background: #f2eae4;
+        }
+        
+        input[type="range"]::-ms-fill-upper {
+            background: #f2eae4;
+        }
+        
+        input[type="range"]::-moz-range-track {
+            border: none;
+            background: #f2eae4;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none !important;
+            background: #ff3677;
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            box-shadow: -100vw 0 0 100vw #f7d9b9;
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            background: #ff3677;
+            height: 8px;
+            width: 8px;
+            border-radius: 100%;
+        }
+        
+        input[type="range"]::-ms-thumb {
+            -webkit-appearance: none !important;
+            background: #ff3677;
+            height: 8px;
+            width: 8px;
+            border-radius: 100%;
+        }
+    }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
 
 .select-wrapper {
     position: relative;

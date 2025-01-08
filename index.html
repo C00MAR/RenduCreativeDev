@@ -8,6 +8,30 @@
   </head>
   <body>
     <div id="app" class="noise">
+      <div class="musicPlayer">
+        <div class="musicPlayer__cover">
+          <img src="https://picsum.photos/id/598/50/50" alt="">
+        </div>
+        <div class="musicPlayer__track">
+          <p>Track Name</p>
+          <div class="musicPlayer__controls">
+            <div class="play">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.62382 14.8976C3.35347 14.8976 3.08313 14.8276 2.8354 14.6863C2.58935 14.5485 2.38478 14.3473 2.243 14.1035C2.10122 13.8597 2.02743 13.5824 2.02933 13.3004V2.699C2.02933 2.11804 2.33057 1.59997 2.8354 1.31307C3.33968 1.02562 3.93885 1.03169 4.43816 1.32907L13.3441 6.63004C13.8313 6.92025 14.1226 7.43225 14.1226 7.99997C14.1226 8.56769 13.8313 9.07969 13.3441 9.3699L4.43871 14.6709C4.19251 14.8186 3.91093 14.8969 3.62382 14.8976ZM3.62602 2.20687C3.53995 2.20763 3.45547 2.23022 3.3805 2.27252C3.30451 2.31461 3.24131 2.37647 3.1976 2.45155C3.15389 2.52663 3.1313 2.61213 3.13223 2.699V13.3009C3.13223 13.5586 3.30547 13.6849 3.3805 13.7274C3.4556 13.7712 3.54115 13.7939 3.62809 13.793C3.71502 13.7922 3.8001 13.7678 3.8743 13.7225L12.7797 8.42149C12.996 8.29293 13.0197 8.08383 13.0197 7.99997C13.0197 7.91611 12.9965 7.707 12.7797 7.57845L3.87375 2.27749C3.79929 2.2315 3.71354 2.20705 3.62602 2.20687Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="pause hide">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.33333 12.6667C6.06667 12.6667 6.66667 12.0667 6.66667 11.3334V4.66671C6.66667 3.93337 6.06667 3.33337 5.33333 3.33337C4.6 3.33337 4 3.93337 4 4.66671V11.3334C4 12.0667 4.6 12.6667 5.33333 12.6667ZM9.33333 4.66671V11.3334C9.33333 12.0667 9.93333 12.6667 10.6667 12.6667C11.4 12.6667 12 12.0667 12 11.3334V4.66671C12 3.93337 11.4 3.33337 10.6667 3.33337C9.93333 3.33337 9.33333 3.93337 9.33333 4.66671Z" fill="black"/>
+              </svg>
+            </div>
+            <input type="range" step="1" class="seekbar" value="0" min="0" max="100">
+            <audio class="music-element">
+              <source src="https://raw.githubusercontent.com/hossein-ghanbari/js-music-player/refs/heads/master/autumn.mp3" type="audio/mp3">
+            <span class="current-time">0:0</span><span class="duration">0:0</span>
+          </div>
+        </div>
+      </div>
       <section class="herobanner">
         
         <h1 class="herobanner__TitleAlbum">
@@ -154,14 +178,13 @@
                   <option value="CottonCandy">Cotton Candy</option>
                   <option value="CoffeeBreak">Coffee Break</option>
                   <option value="Cyberpunk">Cyberpunk</option>
-                  <option value="AmethystDream">Amethyst Dream</option>
-                  <option value="MarineDepths">Marine Depths</option>
               </select>
           </div>
       </section>
     </div>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/scrollGsap.ts"></script>
+    <script type="module" src="/src/musicPlayer.ts"></script>
     <script type="module" src="/src/sphereCanva.ts"></script>
   </body>
 </html>
