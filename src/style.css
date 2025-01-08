@@ -3,6 +3,8 @@ body {
   font-family: "ClashDisplay-Medium";
   font-size: 16px;
   color: #eeeeee;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,6 +36,46 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   text-transform: uppercase;
   font-size: 9.5rem !important;
+}
+
+.noise::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.05;
+  z-index: 1000;
+  pointer-events: none;
+  background: url("/public/noise.gif");
+}
+
+.slider {
+  overscroll-behavior: none;
+  width: 300%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.slider__Page {
+  width: 100vw;
+  height: 100vh;
+}
+.slider__Page:nth-child(1) {
+  background: rgb(130, 0, 162);
+}
+.slider__Page:nth-child(2) {
+  background: rgb(130, 0, 162);
+}
+.slider__Page:nth-child(3) {
+  background: rgb(130, 0, 162);
+}
+
+.canva {
+  height: 100vh;
+  width: 100vw;
+  background: rgb(130, 0, 162);
 }
 
 /*# sourceMappingURL=style.css.map */
