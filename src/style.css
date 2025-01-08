@@ -1,10 +1,13 @@
-@import "../public/font/css/clash-display.css";
+@import "/font/css/clash-display.css";
 body {
   font-family: "ClashDisplay-Medium";
   font-size: 16px;
   color: #eeeeee;
   overflow-x: hidden;
   overscroll-behavior: none;
+  background-image: url("./assets/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: rgb(130, 0, 162);
+  position: relative;
 }
 .herobanner__icon {
   width: 20vw;
@@ -32,10 +35,22 @@ h1, h2, h3, h4, h5, h6 {
   fill: #eeeeee;
 }
 .herobanner__TitleAlbum {
+  width: 100vw;
+  margin-top: auto;
+}
+.herobanner__TitleAlbum svg {
+  width: 100%;
+}
+.herobanner .wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  overflow: hidden;
+}
+.herobanner .wrap .svg {
   position: absolute;
-  bottom: 0;
-  text-transform: uppercase;
-  font-size: 9.5rem !important;
+  transform-style: preserve-3d;
 }
 
 .noise::before {
@@ -76,6 +91,124 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   width: 100vw;
   background: rgb(130, 0, 162);
+}
+
+@keyframes float-x {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes float-y {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.svg:nth-child(1) {
+  left: 30%;
+  top: 30%;
+  animation: float-x 13s ease-in-out infinite, float-y 10s ease-in-out infinite alternate, rotate 25s linear infinite;
+  animation-delay: -2s;
+  transform: scale(0.55);
+  z-index: -6;
+  filter: blur(-5px);
+  opacity: 0.8;
+}
+.svg:nth-child(1):hover {
+  animation-play-state: paused;
+}
+
+.svg:nth-child(2) {
+  left: 45%;
+  top: 40%;
+  animation: float-x 16s ease-in-out infinite, float-y 12s ease-in-out infinite alternate, rotate 30s linear infinite;
+  animation-delay: -4s;
+  transform: scale(0.7);
+  z-index: -5;
+  filter: blur(-4px);
+  opacity: 0.8;
+}
+.svg:nth-child(2):hover {
+  animation-play-state: paused;
+}
+
+.svg:nth-child(3) {
+  left: 60%;
+  top: 50%;
+  animation: float-x 19s ease-in-out infinite, float-y 14s ease-in-out infinite alternate, rotate 35s linear infinite;
+  animation-delay: -6s;
+  transform: scale(0.85);
+  z-index: -4;
+  filter: blur(-3px);
+  opacity: 0.8;
+}
+.svg:nth-child(3):hover {
+  animation-play-state: paused;
+}
+
+.svg:nth-child(4) {
+  left: 75%;
+  top: 60%;
+  animation: float-x 22s ease-in-out infinite, float-y 16s ease-in-out infinite alternate, rotate 40s linear infinite;
+  animation-delay: -8s;
+  transform: scale(1);
+  z-index: -3;
+  filter: blur(-2px);
+  opacity: 0.8;
+}
+.svg:nth-child(4):hover {
+  animation-play-state: paused;
+}
+
+.svg:nth-child(1) {
+  animation-timing-function: ease-in-out;
+}
+
+.svg:nth-child(2) {
+  animation-timing-function: ease-out;
+}
+
+.svg:nth-child(3) {
+  animation-timing-function: linear;
+}
+
+.svg:nth-child(4) {
+  animation-timing-function: ease-in;
+}
+
+.svg:nth-child(1) {
+  animation-direction: alternate;
+}
+
+.svg:nth-child(2) {
+  animation-direction: alternate-reverse;
+}
+
+.svg:nth-child(3) {
+  animation-direction: normal;
+}
+
+.svg:nth-child(4) {
+  animation-direction: reverse;
 }
 
 /*# sourceMappingURL=style.css.map */

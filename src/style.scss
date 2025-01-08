@@ -1,4 +1,4 @@
-@import "../public/font/css/clash-display.css";
+@import "/font/css/clash-display.css";
 
 body {
     font-family: 'ClashDisplay-Medium';
@@ -6,6 +6,10 @@ body {
     color: #eeeeee;
     overflow-x: hidden;
     overscroll-behavior: none;
+    background-image: url('./assets/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -20,26 +24,43 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: rgb(130, 0, 162);
-
+    position: relative;
+    // overflow: hidden;
+    // background: rgb(130, 0, 162);
+    
     &__icon {
         width: 20vw;
-
+        
         svg {
             width: 100%;
             filter: drop-shadow(0 0 0.75rem rgb(255, 255, 255));
-        
+            
             path {
                 fill: #eeeeee;
             }
         }
     }
-
+    
     &__TitleAlbum {
-        position: absolute;
-        bottom: 0;
-        text-transform: uppercase;
-        font-size: 9.5rem !important;
+        width: 100vw;
+        margin-top: auto;
+        
+        & svg {
+            width: 100%;
+        }
+    }
+
+    .wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        perspective: 1000px;
+        overflow: hidden;
+        
+        .svg {
+            position: absolute;
+            transform-style: preserve-3d;
+        }
     }
 }
 
@@ -77,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 
         &:nth-child(3) {
             background: rgb(130, 0, 162);
+    
         }
     }
 }
@@ -86,3 +108,56 @@ h1, h2, h3, h4, h5, h6 {
     width: 100vw;
     background: rgb(130, 0, 162);
 }
+
+
+// Create floating animation keyframes
+@keyframes float-x {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes float-y {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(100px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+$total: 4;
+
+@for $i from 1 through $total {
+    .svg:nth-child(#{$i}) {
+        left: 15% + ($i * 15%);
+        top: 20% + ($i * 10%);
+        animation: 
+            float-x #{10 + $i * 3}s ease-in-out infinite,
+            float-y #{8 + $i * 2}s ease-in-out infinite alternate,
+            rotate #{20 + $i * 5}s linear infinite;
+        animation-delay: -#{$i * 2}s;
+        transform: scale(#{0.4 + $i * 0.15});
+        z-index: $i - 7;
+        filter: blur(#{$i - 6}px);
+        opacity: 0.8;
+        
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+}
+
+// Add different movement patterns for each SVG
+.svg:nth-child(1) { animation-timing-function: ease-in-out; }
+.svg:nth-child(2) { animation-timing-function: ease-out; }
+.svg:nth-child(3) { animation-timing-function: linear; }
+.svg:nth-child(4) { animation-timing-function: ease-in; }
+
+// Add different directions for each SVG
+.svg:nth-child(1) { animation-direction: alternate; }
+.svg:nth-child(2) { animation-direction: alternate-reverse; }
+.svg:nth-child(3) { animation-direction: normal; }
+.svg:nth-child(4) { animation-direction: reverse; }
