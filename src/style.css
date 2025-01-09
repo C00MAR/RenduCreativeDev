@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import "/font/css/clash-display.css";
 body {
   font-family: "ClashDisplay-Medium";
@@ -95,14 +94,37 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 10vw;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .canva {
+    flex-direction: column;
+    gap: 10vh;
+  }
 }
 .canva canvas {
   padding: 0.5rem;
   border: 1px solid #0e0e0e;
   border-radius: 1rem;
+}
+.canva .controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  color: #0e0e0e;
+  font-size: 1.5rem;
+}
+.canva .controls .controls__group {
+  display: flex;
+  gap: 0.25rem;
+  flex-direction: column;
+}
+.canva .controls select {
+  padding: 0.5rem 1rem;
 }
 
 @keyframes float-diagonal1 {
@@ -174,9 +196,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .svg:nth-child(1) {
-  left: 50%;
-  top: 27%;
-  animation: float-diagonal1 16s ease-in-out infinite;
+  left: 58%;
+  top: 16%;
+  animation: float-diagonal1 12s ease-in-out infinite;
   transform: scale(0.5);
   z-index: -6;
   filter: blur(-5px);
@@ -184,9 +206,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .svg:nth-child(2) {
-  left: 16%;
-  top: 5%;
-  animation: float-diagonal2 17s ease-in-out infinite;
+  left: 25%;
+  top: 10%;
+  animation: float-diagonal2 14s ease-in-out infinite;
   transform: scale(0.6);
   z-index: -5;
   filter: blur(-4px);
@@ -194,9 +216,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .svg:nth-child(3) {
-  left: 44%;
-  top: 37%;
-  animation: float-circle 13s ease-in-out infinite;
+  left: 41%;
+  top: 44%;
+  animation: float-circle 19s ease-in-out infinite;
   transform: scale(0.7);
   z-index: -4;
   filter: blur(-3px);
@@ -204,9 +226,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .svg:nth-child(4) {
-  left: 15%;
-  top: 59%;
-  animation: float-random 17s ease-in-out infinite;
+  left: 14%;
+  top: 48%;
+  animation: float-random 13s ease-in-out infinite;
   transform: scale(0.8);
   z-index: -3;
   filter: blur(-2px);
@@ -354,17 +376,6 @@ select:focus {
   outline: none;
   border-color: #666;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.select-wrapper::after {
-  content: "▼";
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #666;
-  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

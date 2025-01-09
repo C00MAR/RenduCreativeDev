@@ -116,14 +116,39 @@ h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     width: 100vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 10vw;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 10vh;
+    }
 
     canvas {
         padding: 0.5rem;
         border: 1px solid #0e0e0e;
         border-radius: 1rem;
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        color: #0e0e0e;
+        font-size: 1.5rem;
+
+        .controls__group {
+            display: flex;
+            gap: 0.25rem;
+            flex-direction: column;
+        }
+
+        select {
+            padding: 0.5rem 1rem;
+        }
     }
 }
 
@@ -337,15 +362,4 @@ select:focus {
     outline: none;
     border-color: #666;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.select-wrapper::after {
-    content: '▼';
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #666;
-    font-size: 12px;
 }
