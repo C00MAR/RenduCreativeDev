@@ -4,34 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLOOM - Nomadic Echoes</title>
+    <title>BLOOM - Echoes</title>
   </head>
   <body>
     <div id="app" class="noise">
-      <div class="musicPlayer">
-        <div class="musicPlayer__cover">
-          <img src="https://picsum.photos/id/598/50/50" alt="">
+      <section class="headActions">
+        <div class="headActions__links">
+          <a target="_blank" href="https://open.spotify.com/intl-fr/artist/59MSkPQj3UewWqvKmTsLha">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_87_15)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24.488 2.18201C12.448 2.18201 2.672 11.958 2.672 24C2.672 36.042 12.448 45.818 24.488 45.818C36.53 45.818 46.306 36.042 46.306 24C46.306 11.958 36.53 2.18201 24.488 2.18201ZM24.488 5.78201C34.542 5.78201 42.706 13.946 42.706 24C42.706 34.054 34.542 42.218 24.488 42.218C14.434 42.218 6.27197 34.054 6.27197 24C6.27197 13.946 14.434 5.78201 24.488 5.78201ZM14.83 32.632C14.83 32.632 24.952 29.874 32.158 34.47C32.996 35.004 34.11 34.758 34.644 33.92C35.178 33.084 34.932 31.97 34.094 31.436C25.69 26.076 13.902 29.154 13.902 29.154C12.942 29.41 12.37 30.396 12.626 31.356C12.882 32.316 13.87 32.888 14.83 32.632ZM14.962 26.26C14.962 26.26 24.012 23.148 34.412 28.572C35.294 29.032 36.382 28.69 36.842 27.808C37.3 26.928 36.958 25.84 36.078 25.38C24.158 19.166 13.77 22.864 13.77 22.864C12.834 23.192 12.338 24.22 12.668 25.158C12.996 26.094 14.024 26.59 14.962 26.26ZM13.544 19.816C13.544 19.816 24.554 16.362 37.038 22.184C37.938 22.604 39.01 22.214 39.43 21.314C39.85 20.414 39.46 19.342 38.56 18.922C24.694 12.454 12.456 16.384 12.456 16.384C11.508 16.684 10.984 17.698 11.284 18.644C11.586 19.592 12.598 20.116 13.544 19.816Z" fill="white"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_87_15">
+              <rect width="48" height="48" fill="white"/>
+              </clipPath>
+              </defs>
+              </svg>
+          </a>
+          <a target="_blank" href="https://soundcloud.com/bloommusicofficial">
+            <svg width="48" height="27" viewBox="0 0 48 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_87_19)">
+              <path d="M0 21.8475C0 22.4432 0.215945 22.8936 0.647743 23.1988C1.07959 23.5041 1.54118 23.612 2.03257 23.5227C2.49417 23.4334 2.81804 23.2696 3.00423 23.0313C3.19033 22.7931 3.28343 22.3985 3.28343 21.8475V15.3701C3.28343 14.9085 3.12337 14.5176 2.80321 14.1975C2.48309 13.8773 2.09221 13.7172 1.63057 13.7172C1.18385 13.7172 0.800433 13.8773 0.480269 14.1975C0.160105 14.5176 0 14.9085 0 15.3701V21.8475ZM5.13727 24.6172C5.13727 25.0491 5.28991 25.3729 5.59516 25.5888C5.90044 25.8048 6.29132 25.9127 6.76779 25.9127C7.25918 25.9127 7.65748 25.8047 7.96277 25.5888C8.26801 25.3729 8.42065 25.0491 8.42065 24.6172V9.51807C8.42065 9.07136 8.26055 8.68789 7.94043 8.36777C7.62027 8.04766 7.22939 7.88755 6.76779 7.88755C6.32107 7.88755 5.93761 8.04766 5.61749 8.36777C5.29733 8.68794 5.13727 9.07136 5.13727 9.51807V24.6172ZM10.2522 25.3319C10.2522 25.7638 10.4086 26.0876 10.7213 26.3036C11.034 26.5195 11.436 26.6275 11.9274 26.6275C12.4039 26.6275 12.7948 26.5195 13.1 26.3036C13.4053 26.0876 13.558 25.7638 13.558 25.3319V11.5506C13.558 11.0891 13.3979 10.6944 13.0777 10.3668C12.7576 10.0393 12.3742 9.8755 11.9274 9.8755C11.4658 9.8755 11.0712 10.0393 10.7436 10.3668C10.4161 10.6944 10.2522 11.0891 10.2522 11.5506L10.2522 25.3319ZM15.3895 25.3989C15.3895 26.2179 15.9404 26.6275 17.0423 26.6275C18.1442 26.6275 18.6951 26.2179 18.6951 25.3989V3.06299C18.6951 1.81217 18.3154 1.10488 17.556 0.94107C17.0646 0.82193 16.5806 0.963406 16.1042 1.36545C15.6277 1.7675 15.3894 2.33331 15.3894 3.06299V25.3989H15.3895ZM20.6161 26.0467V1.74516C20.6161 0.970867 20.8469 0.509272 21.3085 0.360335C22.3062 0.1221 23.2964 0.00296021 24.2792 0.00296021C26.5574 0.00296021 28.6794 0.539023 30.6449 1.61115C32.6105 2.68327 34.2001 4.14628 35.4136 6.00016C36.6272 7.85409 37.3308 9.89779 37.5244 12.1314C38.4327 11.7443 39.4006 11.5507 40.428 11.5507C42.5127 11.5507 44.2959 12.2878 45.7775 13.762C47.2591 15.2362 48 17.0081 48 19.078C48 21.1627 47.2591 22.9421 45.7775 24.4162C44.2959 25.8904 42.5202 26.6275 40.4504 26.6275L21.0181 26.6052C20.884 26.5605 20.7835 26.4786 20.7165 26.3595C20.6495 26.2404 20.6161 26.136 20.6161 26.0467Z" fill="white"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_87_19">
+              <rect width="48" height="26.6304" fill="white"/>
+              </clipPath>
+              </defs>
+              </svg>
+          </a>
         </div>
-        <div class="musicPlayer__track">
-          <p>Track Name</p>
-          <div class="musicPlayer__controls">
-            <div class="play">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.62382 14.8976C3.35347 14.8976 3.08313 14.8276 2.8354 14.6863C2.58935 14.5485 2.38478 14.3473 2.243 14.1035C2.10122 13.8597 2.02743 13.5824 2.02933 13.3004V2.699C2.02933 2.11804 2.33057 1.59997 2.8354 1.31307C3.33968 1.02562 3.93885 1.03169 4.43816 1.32907L13.3441 6.63004C13.8313 6.92025 14.1226 7.43225 14.1226 7.99997C14.1226 8.56769 13.8313 9.07969 13.3441 9.3699L4.43871 14.6709C4.19251 14.8186 3.91093 14.8969 3.62382 14.8976ZM3.62602 2.20687C3.53995 2.20763 3.45547 2.23022 3.3805 2.27252C3.30451 2.31461 3.24131 2.37647 3.1976 2.45155C3.15389 2.52663 3.1313 2.61213 3.13223 2.699V13.3009C3.13223 13.5586 3.30547 13.6849 3.3805 13.7274C3.4556 13.7712 3.54115 13.7939 3.62809 13.793C3.71502 13.7922 3.8001 13.7678 3.8743 13.7225L12.7797 8.42149C12.996 8.29293 13.0197 8.08383 13.0197 7.99997C13.0197 7.91611 12.9965 7.707 12.7797 7.57845L3.87375 2.27749C3.79929 2.2315 3.71354 2.20705 3.62602 2.20687Z" fill="black"/>
-              </svg>
+        <div class="musicPlayer">
+          <div class="musicPlayer__cover">
+            <img src="./src/assets/urban.png" alt="">
+          </div>
+          <div class="musicPlayer__track">
+            <p>Urban Serenade</p>
+            <div class="musicPlayer__controls">
+              <div class="play">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.62382 14.8976C3.35347 14.8976 3.08313 14.8276 2.8354 14.6863C2.58935 14.5485 2.38478 14.3473 2.243 14.1035C2.10122 13.8597 2.02743 13.5824 2.02933 13.3004V2.699C2.02933 2.11804 2.33057 1.59997 2.8354 1.31307C3.33968 1.02562 3.93885 1.03169 4.43816 1.32907L13.3441 6.63004C13.8313 6.92025 14.1226 7.43225 14.1226 7.99997C14.1226 8.56769 13.8313 9.07969 13.3441 9.3699L4.43871 14.6709C4.19251 14.8186 3.91093 14.8969 3.62382 14.8976ZM3.62602 2.20687C3.53995 2.20763 3.45547 2.23022 3.3805 2.27252C3.30451 2.31461 3.24131 2.37647 3.1976 2.45155C3.15389 2.52663 3.1313 2.61213 3.13223 2.699V13.3009C3.13223 13.5586 3.30547 13.6849 3.3805 13.7274C3.4556 13.7712 3.54115 13.7939 3.62809 13.793C3.71502 13.7922 3.8001 13.7678 3.8743 13.7225L12.7797 8.42149C12.996 8.29293 13.0197 8.08383 13.0197 7.99997C13.0197 7.91611 12.9965 7.707 12.7797 7.57845L3.87375 2.27749C3.79929 2.2315 3.71354 2.20705 3.62602 2.20687Z" fill="black"/>
+                </svg>
+              </div>
+              <div class="pause hide">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.33333 12.6667C6.06667 12.6667 6.66667 12.0667 6.66667 11.3334V4.66671C6.66667 3.93337 6.06667 3.33337 5.33333 3.33337C4.6 3.33337 4 3.93337 4 4.66671V11.3334C4 12.0667 4.6 12.6667 5.33333 12.6667ZM9.33333 4.66671V11.3334C9.33333 12.0667 9.93333 12.6667 10.6667 12.6667C11.4 12.6667 12 12.0667 12 11.3334V4.66671C12 3.93337 11.4 3.33337 10.6667 3.33337C9.93333 3.33337 9.33333 3.93337 9.33333 4.66671Z" fill="black"/>
+                </svg>
+              </div>
+              <input type="range" step="1" class="seekbar" value="0" min="0" max="100">
+              <audio class="music-element">
+                <source src="./src/assets/my_head.mp3" type="audio/mp3">
+              <span class="current-time">0:0</span><span class="duration">0:0</span>
             </div>
-            <div class="pause hide">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.33333 12.6667C6.06667 12.6667 6.66667 12.0667 6.66667 11.3334V4.66671C6.66667 3.93337 6.06667 3.33337 5.33333 3.33337C4.6 3.33337 4 3.93337 4 4.66671V11.3334C4 12.0667 4.6 12.6667 5.33333 12.6667ZM9.33333 4.66671V11.3334C9.33333 12.0667 9.93333 12.6667 10.6667 12.6667C11.4 12.6667 12 12.0667 12 11.3334V4.66671C12 3.93337 11.4 3.33337 10.6667 3.33337C9.93333 3.33337 9.33333 3.93337 9.33333 4.66671Z" fill="black"/>
-              </svg>
-            </div>
-            <input type="range" step="1" class="seekbar" value="0" min="0" max="100">
-            <audio class="music-element">
-              <source src="https://raw.githubusercontent.com/hossein-ghanbari/js-music-player/refs/heads/master/autumn.mp3" type="audio/mp3">
-            <span class="current-time">0:0</span><span class="duration">0:0</span>
           </div>
         </div>
-      </div>
+      </section>
       <section class="herobanner">
         
         <h1 class="herobanner__TitleAlbum">
@@ -153,15 +181,32 @@
       </section>
       <div class="slider">
         <section class="slider__Page">
-          ONE
+          <div class="slider__square">
+            <img src="./src/assets/urban.png" alt="">
+          </div>
+          Urban Serenade
         </section>
         <section class="slider__Page">
-          TWO
+          <div class="slider__square">
+            <img src="./src/assets/waves.png" alt="">
+          </div>
+          Rhythm of the Waves
         </section>
         <section class="slider__Page">
-          THREE
+          <div class="slider__square">
+            <img src="./src/assets/flow.png" alt="">
+          </div>
+          Timeless Flow
         </section>
       </div>
+      <section class="bandeau">
+        <div class="bandeau__container">
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_118_208)"> <path d="M100 200C97.1048 105.262 94.738 102.91 0 100C94.738 97.1048 97.0903 94.738 100 0C102.895 94.738 105.262 97.0903 200 100C105.262 102.91 102.91 105.233 100 200Z" fill="url(#paint0_linear_118_208)"/> </g> <defs> <linearGradient id="paint0_linear_118_208" x1="14" y1="26" x2="179" y2="179.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#E9B8FF"/> <stop offset="1" stop-color="#F9ECFF"/> </linearGradient> <clipPath id="clip0_118_208"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_118_208)"> <path d="M100 200C97.1048 105.262 94.738 102.91 0 100C94.738 97.1048 97.0903 94.738 100 0C102.895 94.738 105.262 97.0903 200 100C105.262 102.91 102.91 105.233 100 200Z" fill="url(#paint0_linear_118_208)"/> </g> <defs> <linearGradient id="paint0_linear_118_208" x1="14" y1="26" x2="179" y2="179.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#E9B8FF"/> <stop offset="1" stop-color="#F9ECFF"/> </linearGradient> <clipPath id="clip0_118_208"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_118_208)"> <path d="M100 200C97.1048 105.262 94.738 102.91 0 100C94.738 97.1048 97.0903 94.738 100 0C102.895 94.738 105.262 97.0903 200 100C105.262 102.91 102.91 105.233 100 200Z" fill="url(#paint0_linear_118_208)"/> </g> <defs> <linearGradient id="paint0_linear_118_208" x1="14" y1="26" x2="179" y2="179.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#E9B8FF"/> <stop offset="1" stop-color="#F9ECFF"/> </linearGradient> <clipPath id="clip0_118_208"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_118_208)"> <path d="M100 200C97.1048 105.262 94.738 102.91 0 100C94.738 97.1048 97.0903 94.738 100 0C102.895 94.738 105.262 97.0903 200 100C105.262 102.91 102.91 105.233 100 200Z" fill="url(#paint0_linear_118_208)"/> </g> <defs> <linearGradient id="paint0_linear_118_208" x1="14" y1="26" x2="179" y2="179.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#E9B8FF"/> <stop offset="1" stop-color="#F9ECFF"/> </linearGradient> <clipPath id="clip0_118_208"> <rect width="200" height="200" fill="white"/> </clipPath> </defs> </svg>
+        </div>
+      </section>
       <section class="container canva">
           <canvas id="sphereCanvas"></canvas>
           <div class="controls">
