@@ -72,28 +72,60 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slider {
-  overscroll-behavior: none;
-  width: 300%;
-  height: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-}
-.slider__Page {
-  gap: 24px;
   width: 100vw;
-  height: 100vh;
+  padding: 0 16px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  gap: 56px;
+  text-align: center;
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
 }
-.slider__square {
-  width: 500px;
-  height: 500px;
-  z-index: 90000;
-  position: relative;
+.slider__square img {
+  width: 100%;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 800px) {
+  .slider {
+    margin-top: 20vh;
+  }
+  .slider__square img {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .slider {
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    width: 300%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .slider__Page {
+    gap: 24px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3rem;
+  }
+  .slider__square {
+    width: 500px;
+    height: 500px;
+    z-index: 90000;
+    position: relative;
+  }
+  .slider__square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 }
 
 .canva {
@@ -179,8 +211,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 .svg:nth-child(1) {
-  left: 57%;
-  top: 16%;
+  left: 47%;
+  top: 26%;
   animation: float-diagonal1 14s ease-in-out infinite;
   transform: scale(0.5);
   z-index: -6;
@@ -189,9 +221,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .svg:nth-child(2) {
-  left: 17%;
-  top: 2%;
-  animation: float-diagonal2 9s ease-in-out infinite;
+  left: 19%;
+  top: 4%;
+  animation: float-diagonal2 20s ease-in-out infinite;
   transform: scale(0.6);
   z-index: -5;
   filter: blur(-4px);
@@ -200,8 +232,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .svg:nth-child(3) {
   left: 45%;
-  top: 33%;
-  animation: float-circle 12s ease-in-out infinite;
+  top: 43%;
+  animation: float-circle 17s ease-in-out infinite;
   transform: scale(0.7);
   z-index: -4;
   filter: blur(-3px);
@@ -209,9 +241,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .svg:nth-child(4) {
-  left: 3%;
-  top: 49%;
-  animation: float-random 13s ease-in-out infinite;
+  left: 4%;
+  top: 50%;
+  animation: float-random 14s ease-in-out infinite;
   transform: scale(0.8);
   z-index: -3;
   filter: blur(-2px);
@@ -387,11 +419,17 @@ select:focus {
 }
 
 .bandeau__container {
+  margin-top: 20vh;
   width: 100%;
   padding: 8px;
   display: flex;
   justify-content: space-around;
   border: 1px solid;
+}
+@media screen and (min-width: 1024px) {
+  .bandeau__container {
+    margin-top: 0;
+  }
 }
 .bandeau__container svg {
   width: 56px;
