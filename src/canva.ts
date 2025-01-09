@@ -22,7 +22,7 @@ export default class CanvasManager {
         
         this.colorManager = new ColorManager();
         this.lightManager = new LightManager(this.ctx);
-        this.shape = new Shape(this.ctx, ShapeType.Cube);
+        this.shape = new Shape(this.ctx, ShapeType.Sphere);
         
         this.lightManager.trackLightSource(this.canvas, () => {
             this.draw();
@@ -71,5 +71,5 @@ export default class CanvasManager {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const canvasManager = new CanvasManager('sphereCanvas', 'shapeSelect', 'paletteSelect');
+    new CanvasManager('sphereCanvas', 'shapeSelect', 'paletteSelect');
 });
