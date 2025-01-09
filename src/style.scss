@@ -19,6 +19,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    cursor: text;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,23 +93,25 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     display: flex;
     flex-wrap: nowrap;
-    
     &__Page {
+        gap: 24px;
         width: 100vw;
         height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: black;
+        font-size: 3rem;
         
-        &:nth-child(1) {
-            background: rgb(130, 0, 162);
-        }
-        
-        &:nth-child(2) {
-            background: rgb(130, 0, 162);
-        }
-        
-        &:nth-child(3) {
-            background: rgb(130, 0, 162);
-            
-        }
+    }
+
+    &__square {
+        width: 500px;
+        height: 500px;
+        z-index: 90000;
+        position: relative;
+        // background-color: #eeeeee;
     }
 }
 
@@ -216,10 +219,23 @@ $total: 4;
 .svg:nth-child(3) { animation-direction: normal; }
 .svg:nth-child(4) { animation-direction: reverse; }
 
-.musicPlayer {
+.headActions {
     position: fixed;
-    right: 8px;
+    left: 8px;
     top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 90000;
+    &__links {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+}
+
+.musicPlayer {
     width: fit-content;
     background-color: white;
     backdrop-filter: blur(22px);
@@ -228,14 +244,15 @@ $total: 4;
     background-color: hsla(0, 0%, 100%, .7) !important;
     padding: 8px 16px;
     border-radius: 8px;
-    margin-top: 8px;
+    margin-right: 8px;
     display: flex;
     align-items: center;
     gap: 16px;
-    z-index: 90000;
 
     &__cover img {
         border-radius: 50%;
+        width: 48px;
+        height: 48px;
     }
     
     &__track {
@@ -348,4 +365,29 @@ select:focus {
     pointer-events: none;
     color: #666;
     font-size: 12px;
+}
+
+.bandeau {
+    &__container {
+        width: 100%;
+        padding: 8px;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid;
+
+        svg {
+            width: 56px;
+            height: 56px;
+            animation: rotate 10s linear infinite;
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
